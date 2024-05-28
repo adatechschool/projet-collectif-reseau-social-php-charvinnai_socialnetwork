@@ -61,11 +61,11 @@
                  */
                 while ($tag = $lesInformations->fetch_assoc())
                 {
-                    echo "<pre>" . print_r($tag, 1) . "</pre>";
+                   // echo "<pre>" . print_r($tag, 1) . "</pre>";
                     ?>
                     <article>
-                        <h3>#chaussette</h3>
-                        <p>id:321</p>
+                        <h3>#<?php echo $tag['label'] ?></h3>
+                        <p><?php echo $tag['id']?></p>
                         <nav>
                             <a href="tags.php?tag_id=321">Messages</a>
                         </nav>
@@ -92,13 +92,13 @@
                  * Etape 5 : @todo : Afficher les utilisatrices en s'inspirant de ce qui a été fait dans news.php
                  * Attention à en pas oublier de modifier dans le lien les "user_id=123" avec l'id de l'utilisatrice
                  */
-                while ($tag = $lesInformations->fetch_assoc())
+                while ($users = $lesInformations->fetch_assoc())
                 {
-                    echo "<pre>" . print_r($tag, 1) . "</pre>";
+                    //echo "<pre>" . print_r($tag, 1) . "</pre>";
                     ?>
                     <article>
-                        <h3>Alexandra</h3>
-                        <p>id:123</p>
+                        <h3><?php echo $users['alias'] ?></h3>
+                        <p><?php echo $users['id'] ?></p>
                         <nav>
                             <a href="wall.php?user_id=123">Mur</a>
                             | <a href="feed.php?user_id=123">Flux</a>
