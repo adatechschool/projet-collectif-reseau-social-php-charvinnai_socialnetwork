@@ -36,7 +36,7 @@
             <main>
                 <!-- L'article qui suit est un exemple pour la présentation et 
                   @todo: doit etre retiré -->
-                <article>
+                <!-- <article>
                     <h3>
                         <time datetime='2020-02-01 11:12:13' >31 février 2010 à 11h12</time>
                     </h3>
@@ -54,7 +54,7 @@
                         <a href="">#piscitur</a>,
                     </footer>
                 </article>               
-
+ -->
                 <?php
                 /*
                   // C'est ici que le travail PHP commence
@@ -114,14 +114,21 @@
                     // Séparer la chaîne de caractères en un tableau
                     $tags = explode(',', $post['taglist']);
 
+
+                    $originalDate = $post['created'];
+                    // Convertir la chaîne de date en timestamp Unix
+                    $unixTime = strtotime($originalDate);
+                    // Convertir le timestamp Unix en chaîne de date dans le format souhaité
+                    $newDate = date("d F Y à H\hi", $unixTime);
+
                     // Ajouter un hashtag devant chaque élément du tableau
-                    foreach ($tags as $tag) {
-                    echo "#" . trim($tag) . " ";
-                    }
+                    // foreach ($tags as $tag) {
+                    // echo "#" . trim($tag) . " ";
+                    // }
 
                     //la ligne ci-dessous doit etre supprimée mais regardez ce 
                     //qu'elle affiche avant pour comprendre comment sont organisées les information dans votre 
-                    echo "<pre>" . print_r($post, 1) . "</pre>";
+                    // echo "<pre>" . print_r($post, 1) . "</pre>";
 
                     // @todo : Votre mission c'est de remplacer les AREMPLACER par les bonnes valeurs
                     // ci-dessous par les bonnes valeurs cachées dans la variable $post 
@@ -131,7 +138,7 @@
                     ?>
                     <article>
                         <h3>
-                            <time><?php echo $post['created'] ?></time>
+                            <time><?php echo $newDate ?></time>
                         </h3>
                         <address>par <?php echo $post['author_name'] ?></address>
                         <div>
