@@ -104,7 +104,7 @@
                     // Convertir le timestamp Unix en chaîne de date dans le format souhaité
                     $newDate = date("d F Y à H\hi", $unixTime);
 
-                    echo "<pre>" . print_r($post, 1) . "</pre>";
+                    // echo "<pre>" . print_r($post, 1) . "</pre>";
                     ?>                
                     <article>
                         <h3>
