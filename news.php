@@ -66,7 +66,7 @@
                  */
 
                 // Etape 1: Ouvrir une connexion avec la base de donnée.
-                $mysqli = new mysqli("localhost", "root", "", "socialnetwork");
+                include 'authentication.php';        
                 //verification
                 if ($mysqli->connect_errno)
                 {
@@ -95,6 +95,7 @@
                     ORDER BY posts.created DESC  
                     LIMIT 5
                     ";
+
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 // Vérification
                 if ( ! $lesInformations)
@@ -105,10 +106,19 @@
                     exit();
                 }
 
+
                 // Etape 3: Parcourir ces données et les ranger bien comme il faut dans du html
                 // NB: à chaque tour du while, la variable post ci dessous reçois les informations du post suivant.
                 while ($post = $lesInformations->fetch_assoc())
-                {
+                {   
+                    // Séparer la chaîne de caractères en un tableau
+                    $tags = explode(',', $post['taglist']);
+
+                    // Ajouter un hashtag devant chaque élément du tableau
+                    foreach ($tags as $tag) {
+                    echo "#" . trim($tag) . " ";
+                    }
+
                     //la ligne ci-dessous doit etre supprimée mais regardez ce 
                     //qu'elle affiche avant pour comprendre comment sont organisées les information dans votre 
                     echo "<pre>" . print_r($post, 1) . "</pre>";
@@ -123,14 +133,16 @@
                         <h3>
                             <time><?php echo $post['created'] ?></time>
                         </h3>
-                        <address>AREMPLACER</address>
+                        <address>par <?php echo $post['author_name'] ?></address>
                         <div>
-                            <p>AREMPLACER</p>
+                            <p><?php echo $post['content'] ?></p>
                         </div>
                         <footer>
-                            <small>♥ AREMPLACER </small>
-                            <a href="">AREMPLACER</a>,
-                        </footer>
+                            <small>♥ <?php echo $post['like_number'] ?></small>
+                            <?php foreach ($tags as $tag) { ?>
+<a href=""><?php echo "#" . trim($tag) ?></a>
+<?php } ?>
+</footer>
                     </article>
                     <?php
                     // avec le <?php ci-dessus on retourne en mode php 
