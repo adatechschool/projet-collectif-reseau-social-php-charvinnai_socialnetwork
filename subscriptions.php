@@ -53,14 +53,24 @@
                     GROUP BY users.id
                     ";
                 $lesInformations = $mysqli->query($laQuestionEnSql);
+                if ( ! $lesInformations)
+                {
+                    echo("Échec de la requete : " . $mysqli->error);
+                }
                 // Etape 4: à vous de jouer
                 //@todo: faire la boucle while de parcours des abonnés et mettre les bonnes valeurs ci dessous 
+                while ($subcriptions = $lesInformations->fetch_assoc())
+                {
+
                 ?>
                 <article>
+                    
                     <img src="user.jpg" alt="blason"/>
-                    <h3>Alexandra</h3>
-                    <p>id:654</p>                    
+                    <h3><?php echo $subcriptions['alias']?></h3>
+                    <p><?php echo $subcriptions['id']?></p>   
+                               
                 </article>
+                <?php } ?>  
             </main>
         </div>
     </body>
