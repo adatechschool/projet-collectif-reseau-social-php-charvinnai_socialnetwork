@@ -105,6 +105,8 @@
                     $newDate = date("d F Y à H\hi", $unixTime);
 
                     // echo "<pre>" . print_r($post, 1) . "</pre>";
+                        
+
                     ?>                
                     <article>
                         <h3>
@@ -117,7 +119,13 @@
                         <footer>
                             <small>♥ <?php echo $post['like_number'] ?></small>
                             <?php foreach ($tags as $tag) { ?>
-                            <a href=""><?php echo "#" . trim($tag) ?></a>
+                                <?php
+                                    $hashtagInfoSQL = "SELECT id FROM `tags` WHERE label = '$tag'";
+                                    $hashtagLabel = $mysqli->query($hashtagInfoSQL);
+                                    $hashtag = $hashtagLabel->fetch_assoc();
+                                    // var_dump($hashtag['id']);
+                                ?>
+                            <a href="tags.php?tag_id=<?php echo $hashtag['id'] ?>"><?php echo "#" . trim($tag) ?></a>
                             <?php } ?>
                         </footer>
                     </article>
