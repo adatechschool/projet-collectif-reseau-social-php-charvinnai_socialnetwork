@@ -102,18 +102,41 @@
 
                  
                 ?>                
+                
                 <article>
+                <?php 
+                $authorName = $feed['author_name'];
+
+                $userInfoSQL = "SELECT id FROM `users` WHERE alias = '$authorName'"; 
+                $userLabel = $mysqli->query($userInfoSQL);
+                $userName = $userLabel->fetch_assoc();
+
+
+                // $originalDate = $post['created'];
+                // // Convertir la chaîne de date en timestamp Unix
+                // $unixTime = strtotime($originalDate);
+                // // Convertir le timestamp Unix en chaîne de date dans le format souhaité
+                // $newDate = date("d F Y à H\hi", $unixTime);
+
+                ?>
                     <h3>
                         <time datetime='2020-02-01 11:12:13' >31 février 2010 à 11h12</time>
                     </h3>
-                    <address>par <?php echo $feed['author_name'] ?></address>
+                    <address>par <a href="wall.php?user_id=<?php echo $userName['id'] ?>"><?php echo $authorName ?></address>
                     <div>
                         <p><?php echo $feed['content'] ?></p>
                     </div>                                            
                     <footer>
                         <small>♥<?php echo $feed['like_number'] ?></small>
-                        <?php foreach ($tags as $tag) { ?>
-                         <a href=""><?php echo "#" . trim($tag) ?></a>
+                        <?php foreach ($tags as $tag) { 
+                                    $hashtagInfoSQL = "SELECT id FROM `tags` WHERE label = '$tag'"; 
+                                    // execution de la requete
+                                    $hashtagLabel = $mysqli->query($hashtagInfoSQL);
+                                    // affichage de la requete en array
+                                    $hashtag = $hashtagLabel->fetch_assoc();
+                                    // var_dump($hashtag['id']);
+                                ?>
+                            <a href="tags.php?tag_id=<?php echo $hashtag['id'] ?>"><?php echo "#" . trim($tag) ?></a>
                     <?php } ?> 
                     </footer>
                 </article>
