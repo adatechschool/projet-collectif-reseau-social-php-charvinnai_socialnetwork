@@ -88,6 +88,8 @@
                  */
                 while ($post = $lesInformations->fetch_assoc())
                 {
+                    // Séparer la chaîne de caractères en un tableau
+                    $tags = explode(',', $post['taglist']);
 
                     //echo "<pre>" . print_r($post, 1) . "</pre>";
                     ?>                
@@ -101,7 +103,19 @@
                         </div>                                            
                         <footer>
                             <small>♥ <?php echo $post['like_number'] ?></small>
-                            <a href="">#<?php echo $post['taglist'] ?></a>
+                            <?php
+                                    foreach ($tags as $tag) {
+
+                                    // chemin en string
+                                    $hashtagInfoSQL = "SELECT id FROM `tags` WHERE label = '$tag'"; 
+                                    // execution de la requete
+                                    $hashtagLabel = $mysqli->query($hashtagInfoSQL);
+                                    // affichage de la requete en array
+                                    $hashtag = $hashtagLabel->fetch_assoc();
+                                    // var_dump($hashtag['id']);
+                                ?>
+                            <a href="tags.php?tag_id=<?php echo $hashtag['id'] ?>"><?php echo "#" . trim($tag) ?></a>
+                            <?php } ?>
                         </footer>
                     </article>
                 <?php } ?>
