@@ -114,46 +114,39 @@
                     // Séparer la chaîne de caractères en un tableau
                     $tags = explode(',', $post['taglist']);
 
-
                     $originalDate = $post['created'];
                     // Convertir la chaîne de date en timestamp Unix
                     $unixTime = strtotime($originalDate);
                     // Convertir le timestamp Unix en chaîne de date dans le format souhaité
                     $newDate = date("d F Y à H\hi", $unixTime);
-
-                    // Ajouter un hashtag devant chaque élément du tableau
-                    // foreach ($tags as $tag) {
-                    // echo "#" . trim($tag) . " ";
-                    // }
-
-                    //la ligne ci-dessous doit etre supprimée mais regardez ce 
-                    //qu'elle affiche avant pour comprendre comment sont organisées les information dans votre 
-                    // echo "<pre>" . print_r($post, 1) . "</pre>";
-
-                    // @todo : Votre mission c'est de remplacer les AREMPLACER par les bonnes valeurs
-                    // ci-dessous par les bonnes valeurs cachées dans la variable $post 
-                    // on vous met le pied à l'étrier avec created
-                    // 
-                    // avec le ? > ci-dessous on sort du mode php et on écrit du html comme on veut... mais en restant dans la boucle
                     ?>
                     <article>
                         <h3>
                             <time><?php echo $newDate ?></time>
                         </h3>
-                        <address>par <?php echo $post['author_name'] ?></address>
+                        <?php
+                        $surname = $post['author_name'];
+                                    // chemin en string
+                                    $userInfoSQL = "SELECT id FROM `users` WHERE alias = '$surname'"; 
+                                    // execution de la requete
+                                    $userLabel = $mysqli->query($userInfoSQL);
+                                    // affichage de la requete en array
+                                    $userName = $userLabel->fetch_assoc();
+                                    //var_dump($userName['id']);
+                        ?>
+                        <address>par <a href="wall.php?tag_id=<?php echo $userName['id'] ?>"><?php echo $post['author_name'] ?></a></address>
                         <div>
                             <p><?php echo $post['content'] ?></p>
                         </div>
                         <footer>
                             <small>♥ <?php echo $post['like_number'] ?></small>
                             <?php foreach ($tags as $tag) { ?>
-<a href=""><?php echo "#" . trim($tag) ?></a>
-<?php } ?>
-</footer>
+                                <a href=""><?php echo "#" . trim($tag) ?></a>
+                            <?php } ?>
+                        </footer>
                     </article>
                     <?php
-                    // avec le <?php ci-dessus on retourne en mode php 
-                }// cette accolade ferme et termine la boucle while ouverte avant.
+                }
                 ?>
 
             </main>
