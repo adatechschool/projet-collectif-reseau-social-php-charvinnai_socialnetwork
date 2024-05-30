@@ -134,7 +134,7 @@
                                     $userName = $userLabel->fetch_assoc();
                                     //var_dump($userName['id']);
                         ?>
-                        <address>par <a href="wall.php?tag_id=<?php echo $userName['id'] ?>"><?php echo $post['author_name'] ?></a></address>
+                        <address>par <a href="wall.php?user_id=<?php echo $userName['id'] ?>"><?php echo $post['author_name'] ?></a></address>
                         <div>
                             <p><?php echo $post['content'] ?></p>
                         </div>
