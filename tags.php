@@ -112,7 +112,17 @@
                         <h3>
                             <time><?php echo $newDate ?></time>
                         </h3>
-                        <address>par <?php echo $post['author_name'] ?></address>
+                        <?php
+                        $surname = $post['author_name'];
+                                    // chemin en string
+                                    $userInfoSQL = "SELECT id FROM `users` WHERE alias = '$surname'"; 
+                                    // execution de la requete
+                                    $userLabel = $mysqli->query($userInfoSQL);
+                                    // affichage de la requete en array
+                                    $userName = $userLabel->fetch_assoc();
+                                    //var_dump($userName['id']);
+                        ?>
+                         <address>par <a href="wall.php?user_id=<?php echo $userName['id'] ?>"><?php echo $post['author_name'] ?></a></address>
                         <div>
                             <p><?php echo $post['content'] ?></p>
                         </div>                                            
