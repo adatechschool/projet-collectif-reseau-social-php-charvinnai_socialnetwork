@@ -120,8 +120,11 @@
                             <small>♥ <?php echo $post['like_number'] ?></small>
                             <?php foreach ($tags as $tag) { ?>
                                 <?php
-                                    $hashtagInfoSQL = "SELECT id FROM `tags` WHERE label = '$tag'";
+                                    // chemin en string
+                                    $hashtagInfoSQL = "SELECT id FROM `tags` WHERE label = '$tag'"; 
+                                    // execution de la requete
                                     $hashtagLabel = $mysqli->query($hashtagInfoSQL);
+                                    // affichage de la requete en array
                                     $hashtag = $hashtagLabel->fetch_assoc();
                                     // var_dump($hashtag['id']);
                                 ?>
