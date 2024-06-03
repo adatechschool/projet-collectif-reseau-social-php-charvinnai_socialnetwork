@@ -50,7 +50,6 @@ session_start();
                         // on ne fait ce qui suit que si un formulaire a été soumis.
                         // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travaille se situe
                         // observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
-                        echo "<pre>" . print_r($_POST, 1) . "</pre>";
                         // et complétez le code ci dessous en remplaçant les ???
                         $emailAVerifier = $_POST['email'];
                         $passwdAVerifier = $_POST['motpasse'];
@@ -100,7 +99,7 @@ session_start();
                         <input type='submit'>
                     </form>
                     <p>
-                        Pas de compte?
+                        Pas de compte ? 
                         <a href='registration.php'>Inscrivez-vous.</a>
                     </p>
 
