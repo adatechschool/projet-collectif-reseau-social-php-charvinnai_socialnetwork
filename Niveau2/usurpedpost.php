@@ -14,8 +14,8 @@ session_start();
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
-                <a href="feed.php?user_id=5">Flux</a>
+                <a href="wall.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mur</a>
+                <a href="feed.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Flux</a>
                 <a href="tags.php?tag_id=1">Mots-clés</a>
             </nav>
             <nav id="user">

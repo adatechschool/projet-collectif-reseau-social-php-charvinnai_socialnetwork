@@ -1,3 +1,8 @@
+<?php session_start();
+?>
+
+
+
 <!doctype html>
 <html lang="fr">
     <head>
@@ -11,16 +16,16 @@
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
-                <a href="feed.php?user_id=5">Flux</a>
+                <a href="wall.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mur</a>
+                <a href="feed.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Flux</a>
                 <a href="tags.php?tag_id=1">Mots-clés</a>
             </nav>
             <nav id="user">
                 <a href="#">Profil</a>
                 <ul>
-                    <li><a href="settings.php?user_id=5">Paramètres</a></li>
-                    <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
-                    <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
+                    <li><a href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Paramètres</a></li>
+                    <li><a href="followers.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mes suiveurs</a></li>
+                    <li><a href="subscriptions.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mes abonnements</a></li>
                 </ul>
 
             </nav>
@@ -44,7 +49,8 @@
             ?>
 
             <aside>
-                <?php
+
+              <?php
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */                
@@ -86,13 +92,27 @@
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
                  */
+?>
+                 <article>
+                 <form action="wall.php" method="post">
+                 <dl>
+                    <!--  <dt><label for='auteur'>Auteur</label></dt> -->
+                     <dd>What's up, <?php echo $post['author_name']?>?</dd>
+                     <!--  $_SESSION['connected_id']-->
+                     <dt><label for='message'>Message</label></dt>
+                     <dd><textarea name='message'></textarea></dd>
+                 </dl>
+                 <input type='submit'>
+             </form>               
+             </article>           
+<?php
                 while ($post = $lesInformations->fetch_assoc())
                 {
                     // Séparer la chaîne de caractères en un tableau
                     $tags = explode(',', $post['taglist']);
 
                     //echo "<pre>" . print_r($post, 1) . "</pre>";
-                    ?>                
+                    ?>     
                     <article>
                         <h3>
                             <time datetime='2020-02-01 11:12:13' ><?php echo $post['created'] ?></time>
