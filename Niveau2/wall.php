@@ -131,13 +131,37 @@
                  */
 ?>
                  <article>
-            <form action="wall.php" method="post">
+            <form action="wall.php?user_id=<?php echo $userWall['id'] ?>" method="post">
                  <dl>
                     <!--  <dt><label for='auteur'>Auteur</label></dt> -->
                     <?php
                         $connectedQuery = "SELECT alias FROM `users` WHERE id = " . $_SESSION['connected_id'];
                         $connectedExe = $mysqli->query($connectedQuery);
                         $connectedUser = $connectedExe->fetch_assoc();
+                        ?>
+                    <?php
+
+                    if (isset($_POST['message'])) {
+                     $authorId = $_SESSION['connected_id'];
+                     $postContent = $_POST['message'];
+
+                        $messageQuery = "INSERT INTO posts (id, user_id, content, created, parent_id) "
+                        . "VALUES (NULL, "
+                        .  "'" . $authorId . "', "
+                        . "'" . $postContent . "', "
+                        . "NOW(), "
+                        . "NULL);"
+                        ;
+
+                        $ok = $mysqli->query($messageQuery);
+                        if ( ! $ok)
+                        {
+                            echo "Impossible d'ajouter le message: " . $mysqli->error;
+                        } else
+                        {
+                            echo "Message posté en tant que : " . $connectedUser['alias'];
+                        }
+                    }
                         ?>
 
 
