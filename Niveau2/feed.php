@@ -30,33 +30,24 @@
         </header>
         <div id="wrapper">
             <?php
-            /**
-             * Cette page est TRES similaire à wall.php. 
-             * Vous avez sensiblement à y faire la meme chose.
-             * Il y a un seul point qui change c'est la requete sql.
-             */
-            /**
-             * Etape 1: Le mur concerne un utilisateur en particulier
-             */
+           
+             //Le mur concerne un utilisateur en particulier
+            
             $userId = intval($_GET['user_id']);
             ?>
             <?php
-            /**
-             * Etape 2: se connecter à la base de donnée
-             */
+        
+             //se connecter à la base de donnée
             include 'authentication.php';        
             ?>
 
             <aside>
                 <?php
-                /**
-                 * Etape 3: récupérer le nom de l'utilisateur
-                 */
+                // récupérer le nom de l'utilisateur
                 $laQuestionEnSql = "SELECT * FROM `users` WHERE id= '$userId' ";
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 $user = $lesInformations->fetch_assoc();
-                //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
-                echo "<pre>" . print_r($user, 1) . "</pre>";
+        
                 ?>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
@@ -69,9 +60,8 @@
             </aside>
             <main>
                 <?php
-                /**
-                 * Etape 3: récupérer tous les messages des abonnements
-                 */
+                //récupérer tous les messages des abonnements
+                
                 $laQuestionEnSql = "
                     SELECT posts.content,
                     posts.created,
@@ -103,7 +93,6 @@
                     // Séparer la chaîne de caractères en un tableau
                     $tags = explode(',', $feed['taglist']);
 
-                 
                 ?>                
                 
                 <article>
@@ -113,13 +102,6 @@
                 $userInfoSQL = "SELECT id FROM `users` WHERE alias = '$authorName'"; 
                 $userLabel = $mysqli->query($userInfoSQL);
                 $userName = $userLabel->fetch_assoc();
-
-
-                // $originalDate = $post['created'];
-                // // Convertir la chaîne de date en timestamp Unix
-                // $unixTime = strtotime($originalDate);
-                // // Convertir le timestamp Unix en chaîne de date dans le format souhaité
-                // $newDate = date("d F Y à H\hi", $unixTime);
 
                 ?>
                     <h3>
@@ -144,11 +126,9 @@
                     </footer>
                 </article>
                 <?php }
-                // et de pas oublier de fermer ici vote while
+               
                ?>
-            
-
-
+        
             </main>
         </div>
     </body>

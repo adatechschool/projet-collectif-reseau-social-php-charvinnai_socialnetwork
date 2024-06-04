@@ -63,7 +63,7 @@
                 ?>
 
 
-                <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
+                <img src="img_wall.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez tous les messages de l'utilisatrice : <?php echo $userWall['alias']?></p>

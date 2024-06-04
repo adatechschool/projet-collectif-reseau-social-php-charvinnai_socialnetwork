@@ -29,7 +29,7 @@
         </header>
         <div id="wrapper">
             <aside>
-                <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
+                <img src="img_news.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez les derniers messages de
@@ -113,7 +113,7 @@
                             <p><?php echo $post['content'] ?></p>
                         </div>
                         <footer>
-                            <small>♥ <?php echo $post['like_number'] ?></small>
+                            <small>❤️<?php echo $post['like_number'] ?></small>
                             <?php foreach ($tags as $tag) { ?>
                                 <?php
                                     // chemin en string
