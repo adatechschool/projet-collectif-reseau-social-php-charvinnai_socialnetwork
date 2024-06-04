@@ -39,8 +39,9 @@
              * Documentation : https://www.php.net/manual/fr/reserved.variables.get.php
              * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
              */
+
             $userId =intval($_GET['user_id']);
-            ?>
+                        ?>
             <?php
             /**
              * Etape 2: se connecter à la base de donnée
@@ -60,10 +61,46 @@
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
                 //echo "<pre>" . print_r($userWall, 1) . "</pre>";
                 ?>
+
+
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez tous les messages de l'utilisatrice : <?php echo $userWall['alias']?></p>
+                    <form action="wall.php?user_id=<?php echo $userId ?>" method="post">
+                    <input type='submit' name='followButton' value="S'abonner">
+                    </form>
+
+             <?php 
+                if ($userWall['id'] != $_SESSION['connected_id']) 
+                {
+
+                if(isset($_POST['followButton']))
+                    {
+                        $followSql = "INSERT INTO followers (followed_user_id, following_user_id) "
+                                        . "VALUES (" . $userWall['id'] . ", "
+                                        .  $_SESSION['connected_id'] . ");";
+
+
+                                        $executeFollowSQL = $mysqli->query($followSql);
+                                        if ( ! $executeFollowSQL)
+                                        {
+                                            echo "Impossible d'ajouter le message: " . $mysqli->error;
+                                            header("Location: wall.php?user_id=" . $userWall['id']);
+                                            exit;   
+                                        } else
+                                        {
+                                            echo "Vous êtes abonné.e.s à :" . $userWall['alias'];
+                                            header("Location: wall.php?user_id=" . $userWall['id']);
+                                            exit;    
+                                        }
+                
+                    };
+
+                }
+            ?>
+
+
                 </section>
             </aside>
             <main>
@@ -94,16 +131,23 @@
                  */
 ?>
                  <article>
-                 <form action="wall.php" method="post">
+            <form action="wall.php" method="post">
                  <dl>
                     <!--  <dt><label for='auteur'>Auteur</label></dt> -->
-                     <dd>What's up, <?php echo $post['author_name']?>?</dd>
+                    <?php
+                        $connectedQuery = "SELECT alias FROM `users` WHERE id = " . $_SESSION['connected_id'];
+                        $connectedExe = $mysqli->query($connectedQuery);
+                        $connectedUser = $connectedExe->fetch_assoc();
+                        ?>
+
+
+                     <dd>What's up, <?php echo $connectedUser['alias']?>?</dd>
                      <!--  $_SESSION['connected_id']-->
                      <dt><label for='message'>Message</label></dt>
                      <dd><textarea name='message'></textarea></dd>
                  </dl>
                  <input type='submit'>
-             </form>               
+            </form>               
              </article>           
 <?php
                 while ($post = $lesInformations->fetch_assoc())
