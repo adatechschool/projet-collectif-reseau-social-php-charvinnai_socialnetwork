@@ -126,7 +126,7 @@
                             <p><?php echo $post['content'] ?></p>
                         </div>                                            
                         <footer>
-                            <small>♥ <?php echo $post['like_number'] ?></small>
+                            <small>❤️<?php echo $post['like_number'] ?></small>
                             <?php foreach ($tags as $tag) { ?>
                                 <?php
                                     // chemin en string
