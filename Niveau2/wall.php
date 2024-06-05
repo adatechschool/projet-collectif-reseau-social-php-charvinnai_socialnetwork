@@ -162,12 +162,12 @@
                         ?>
 
 
-                     <dd>What's up, <?php echo $connectedUser['alias']?>?</dd>
+                     <dd><strong>What's up, <?php echo $connectedUser['alias']?>?</strong></dd>
                      <!--  $_SESSION['connected_id']-->
                      <dt><label for='message'>Message</label></dt>
                      <dd><textarea name='message'></textarea></dd>
                  </dl>
-                 <input type='submit'>
+                 <input class="button" type='submit'>
             </form>               
              </article>           
 <?php

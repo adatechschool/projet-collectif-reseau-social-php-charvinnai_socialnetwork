@@ -260,6 +260,12 @@ pre {
     color: #aaa;
 }
 
+dd{
+    color: rgb(113, 113, 240);
+    font-family: Arial; 
+    font-size: 20px;
+}
+
 form dl dt {
     float: left;
     font-weight: bold;
