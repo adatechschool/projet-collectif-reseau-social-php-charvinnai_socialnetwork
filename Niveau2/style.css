@@ -114,7 +114,7 @@ body>header #user:hover ul {
     padding-top: 0;
 }
 
-footer{
+#footer{
     color: white;
     align-self: center;
     display: flex;
