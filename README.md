@@ -54,7 +54,7 @@ Cette approche nous a permis de résoudre ensemble des problèmes complexes en t
 # Outils 🛠️ :
 
 Nous avons utilisé les outils de collaboration suivants :
-- Méthode agile : Stand - up Daily / 4L
+- Méthode agile : Stand-up Daily / 4Ls
 - Git, GitHub
 
 # GROUPE ✨ :
