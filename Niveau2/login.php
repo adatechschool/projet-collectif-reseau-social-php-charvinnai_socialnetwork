@@ -12,11 +12,12 @@ session_start();
     <body>
         <header>
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
-            <nav id="menu">
-                <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mur</a>
-                <a href="feed.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
+            <div id="socialTitle">
+            <h1>Charvinnai 🤜🤛</h1>
+            <p>Venez comme vous êtes !</p>
+            </div>
+            <!-- <nav id="menu">
+            <?php include 'tab.php' ?>
             </nav>
             <nav id="user">
                 <a href="#">Profil</a>
@@ -26,7 +27,7 @@ session_start();
                     <li><a href="subscriptions.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mes abonnements</a></li>
                 </ul>
 
-            </nav>
+            </nav> -->
         </header>
 
         <div id="wrapper" >
@@ -36,7 +37,7 @@ session_start();
                 <p>Bienvenu sur notre réseau social.</p>
             </aside>
             <main>
-                <article>
+                <article class="login">
                     <h2>Connexion</h2>
                     <?php
                     /**
@@ -99,15 +100,17 @@ session_start();
                             <dt><label for='motpasse'>Mot de passe</label></dt>
                             <dd><input type='password'name='motpasse'></dd>
                         </dl>
-                        <input type='submit'>
+                        <input class="button" type='submit'>
                     </form>
-                    <p>
-                        Pas de compte ? 
-                        <a href='registration.php'>Inscrivez-vous.</a>
-                    </p>
-
+                    <label for="registration">
+                    <button class="button" for="registration" onclick="window.location.href = 'registration.php';">Si t'as pas de compte ? Enregistre toi ! 😀</button>
+                    </label>
                 </article>
             </main>
+            <div class="footer"></div>
         </div>
+        <footer id="footer">
+            Réseau social débuggué et amélioré par Charlène GONCALVES-BORGES, Naïma LALMI et Vincent PRÉVOST
+        </footer>
     </body>
 </html>

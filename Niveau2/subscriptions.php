@@ -1,5 +1,4 @@
-<?php session_start();
-?>
+<?php include 'activeSession.php' ?>
 
 <!doctype html>
 <html lang="fr">
@@ -13,10 +12,7 @@
         <header>
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
-                <<a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mur</a>
-                <a href="feed.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
+            <?php include 'tab.php' ?>
             </nav>
             <nav id="user">
                 <a href="#">Profil</a>

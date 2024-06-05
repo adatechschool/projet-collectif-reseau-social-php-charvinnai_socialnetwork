@@ -13,26 +13,8 @@
             <a href='admin.php'><img src="resoc.jpg" alt="Logo de notre réseau social"/></a>
             <nav id="menu">
 
-            <?php
-if (isset($_SESSION['connected_id']) == false) {
-            ?>
+<?php include 'tab.php' ?>
 
-                <a href="login.php">Actualités</a>
-                <a href="login.php">Mur</a>
-                <a href="login.php">Flux</a>
-                <a href="login.php">Mots-clés</a>
-
-<?php   
-}else{?>
-                <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mur</a>
-                <a href="feed.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
-<?php
-};
-
-session_start();
-?>
             </nav>
             <nav id="user">
                 <a href="#">▾ Profil</a>
@@ -51,7 +33,6 @@ session_start();
                     <p>Sur cette page vous trouverez les derniers messages de
                         tous les utilisatrices du site.</p>
 
-                        <button onclick="window.location.href = 'login.php';">Cliquez Ici pour te logger 😀</button>
                 </section>
             </aside>
             <main>
