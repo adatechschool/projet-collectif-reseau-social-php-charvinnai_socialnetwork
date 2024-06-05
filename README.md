@@ -3,7 +3,7 @@
 Le projet consistait à refactoriser le code existant d'une plateforme de réseau social développée en PHP avec les objectifs suivants :
 
 - Déboguer et corriger les problèmes de code actuels
--	A méliorer l'architecture globale pour une meilleure évolutivité et maintenabilité
+-	Améliorer l'architecture globale pour une meilleure évolutivité et maintenabilité
 -	Terminer les fonctionnalités incomplètes et ajouter les fonctionnalités manquantes
 
 # Déploiement :
