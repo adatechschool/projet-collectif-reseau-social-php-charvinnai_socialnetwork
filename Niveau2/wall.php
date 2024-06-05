@@ -1,5 +1,4 @@
-<?php session_start();
-?>
+<?php include 'activeSession.php' ?>
 
 
 
@@ -67,13 +66,14 @@
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez tous les messages de l'utilisatrice : <?php echo $userWall['alias']?></p>
-                    <form action="wall.php?user_id=<?php echo $userId ?>" method="post">
-                    <input type='submit' name='followButton' value="S'abonner">
-                    </form>
 
              <?php 
                 if ($userWall['id'] != $_SESSION['connected_id']) 
-                {
+                {?>
+                                    <form action="wall.php?user_id=<?php echo $userId ?>" method="post">
+                    <input type='submit' name='followButton' value="S'abonner">
+                    </form>
+<?php
 
                 if(isset($_POST['followButton']))
                     {
