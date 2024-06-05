@@ -34,6 +34,8 @@
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez les derniers messages de
                         tous les utilisatrices du site.</p>
+
+                        <button onclick="window.location.href = 'login.php';">Cliquez Ici pour te logger 😀</button>
                 </section>
             </aside>
             <main>
