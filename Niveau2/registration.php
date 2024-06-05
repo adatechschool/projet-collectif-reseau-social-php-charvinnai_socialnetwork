@@ -96,6 +96,11 @@
                         </dl>
                         <input type='submit'>
                     </form>
+                    <p>
+                        Déjà inscrit.e ? 
+                        <a href='login.php'>Connectez-vous.</a>
+                    </p>
+
                 </article>
             </main>
         </div>
