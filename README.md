@@ -3,7 +3,7 @@
 Le projet consistait à refactoriser le code existant d'une plateforme de réseau social développée en PHP avec les objectifs suivants :
 
 - Déboguer et corriger les problèmes de code actuels
--	A méliorer l'architecture globale pour une meilleure évolutivité et maintenabilité
+-	Améliorer l'architecture globale pour une meilleure évolutivité et maintenabilité
 -	Terminer les fonctionnalités incomplètes et ajouter les fonctionnalités manquantes
 
 # Déploiement :
@@ -45,19 +45,21 @@ Caractéristiques
 
 # Collaboration : 
 
-Méthode
+## Méthode
 Dans la phase initiale d'exploration de la base de code fournie, nous avons travaillé ensemble pour acquérir une compréhension du langage SQL et PHP.
-Les premiers jours, nous avons fait du mob programming et nous avons terminé le Niveau 1 (qui consister à se familiariser avec les nouvelles notions) en se répartissant les fichiers. 
-Une fois à l’aise avec le code, nous avons fini le projet ensemble en mob programming car nous sommes rendu compte que tu nous étions plus fort ensemble.
+Les premiers jours, nous avons fait du mob programming et nous avons terminé le Niveau 1 (qui consister à se familiariser avec les nouvelles notions) afin de réussir à terminer ce premier niveau nous avons décidé de ce répartir le reste des fichiers. 
+Une fois à l’aise avec le code, nous avons fini le projet ensemble **toujours en mob programming** car nous sommes rendu compte que tu nous étions plus fort  ensemble.
 Cette approche nous a permis de résoudre ensemble des problèmes complexes en tirant parti de l'expertise et des perspectives variées de toute l'équipe.
 
 # Outils 🛠️ :
 
 Nous avons utilisé les outils de collaboration suivants :
-- Méthode agile : Stand - up Daily / 4L
+- Méthode agile : Stand-up Daily / 4Ls
 - Git, GitHub
 
 # GROUPE ✨ :
+
+![IMG_6032](https://github.com/adatechschool/projet-collectif-reseau-social-php-charvinnai_socialnetwork/assets/159270180/eeecaa22-1039-4da3-a726-25ef1e189fe1)
 
 -	Charlène GONCALVES BORGES
 -	Naïma LALMI 
