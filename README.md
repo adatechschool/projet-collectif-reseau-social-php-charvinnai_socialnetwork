@@ -6,9 +6,6 @@ Le projet consistait à refactoriser le code existant d'une plateforme de résea
 -	Améliorer l'architecture globale pour une meilleure évolutivité et maintenabilité
 -	Terminer les fonctionnalités incomplètes et ajouter les fonctionnalités manquantes
 
-# Déploiement :
-Repo GitHub : https://github.com/adatechschool/projet-collectif-reseau-social-php-charvinnai_socialnetwork
-
 Caractéristiques
 
 # Compétences démontrées dans le projet : 
@@ -54,7 +51,7 @@ Cette approche nous a permis de résoudre ensemble des problèmes complexes en t
 # Outils 🛠️ :
 
 Nous avons utilisé les outils de collaboration suivants :
-- Méthode agile : Stand-up Daily / 4Ls
+- Méthode agile : Stand-up Daily / La méthode de rétrospective Glad - Sad - Mad
 - Git, GitHub
 
 # GROUPE ✨ :
@@ -68,5 +65,5 @@ Nous avons utilisé les outils de collaboration suivants :
 # Rendez-vous :
 
 -	Durée de l'exercice : 6 jours
--	Démo d'exercices : 5 juin 2024
+-	Démo d'exercices : 6 juin 2024
 
